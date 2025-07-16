@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VDR/MDR Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+    <!-- 头部样式 -->
+    <div class="header">
+        <div class="logo-container">
+            <img src="ZTT-logo.png" alt="App Logo" class="logo">
+            <div class="title-container">
+                <h1 class="app-title">VDR/MDR Management</h1>
+                <p class="app-subtitle">Document management system</p>
+            </div>
+        </div>
+    </div>
+        
+        <!-- 全局时间设置 -->
+        <div class="global-time-section">
+            <h3>Global time schedule settings</h3>
+            <div class="time-inputs">
+                <div class="time-input">
+                    <label for="globalPoDate">PO Date:</label>
+                    <input type="date" id="globalPoDate" value="2025-07-16">
+                </div>
+                <div class="time-input">
+                    <label for="globalCustomerDays">Planned Submission Date:</label>
+                    <input type="number" id="globalCustomerDays" value="14" min="1">
+                </div>
+                <button id="applyGlobalTime">Apply all the files</button>
+            </div>
+        </div>
+        
+        <!-- 文件分类区域 -->
+        <div class="category-section" id="categorySection">
+            <!-- 动态生成的文件分类 -->
+        </div>
+        
+        <!-- 操作按钮 -->
+        <div class="action-buttons">
+            <button id="exportBtn">Export the selected file</button>
+            <button id="resetBtn">Reset selection</button>
+        </div>
+        
+        <!-- 状态显示 -->
+        <div id="status" class="status"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // 确保DOM加载完成后初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            new FileManager();
+        });
+    </script>
+</body>
+</html>
